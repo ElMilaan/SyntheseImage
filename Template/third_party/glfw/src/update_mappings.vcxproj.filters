@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Travail\IMAC\SynthèseImage\TD01\Template\CMakeFiles\28576c90efbb4c29f612c9a67ec90445\update_mappings.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Travail\IMAC\SynthèseImage\TD01\Template\third_party\glfw\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Travail\IMAC\SynthèseImage\TD01\Template\third_party\glfw\src\mappings.h.in">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="C:\Travail\IMAC\SynthèseImage\TD01\Template\third_party\glfw\CMake\GenerateMappings.cmake" />
+    <None Include="C:\Travail\IMAC\SynthèseImage\TD01\Template\third_party\glfw\src\CMakeFiles\update_mappings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{915FC972-D3E2-38B5-A2A3-55AD0B050C88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{0921B03C-F9B5-39BC-BB41-B5F446662CBD}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

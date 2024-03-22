@@ -1,0 +1,10 @@
+^C:\TRAVAIL\IMAC\SYNTHÈSEIMAGE\TD01\BUILD\CMAKEFILES\9DE73661DE5ADAEB5E42F5AA34942A9E\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Travail/IMAC/SynthèseImage/TD01/Template/TD01 -BC:/Travail/IMAC/SynthèseImage/TD01/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Travail/IMAC/SynthèseImage/TD01/build/Project.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
