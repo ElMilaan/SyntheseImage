@@ -148,6 +148,24 @@ void drawCircle(float x, float y, float r, bool full)
     glEnd();
 }
 
+void drawRoundedSquare(bool full)
+{
+
+    glPushMatrix();
+    glScalef(1.5, 1, 1);
+    drawSquare(full);
+    glPopMatrix();
+    glPushMatrix();
+    glScalef(1, 1.5, 1);
+    drawSquare(full);
+    glPopMatrix();
+    float dist = 0.75f / 2;
+    drawCircle(-dist, dist, dist, full);
+    drawCircle(dist, dist, dist, full);
+    drawCircle(-dist, -dist, dist, full);
+    drawCircle(dist, -dist, dist, full);
+}
+
 void drawForms(bool full)
 {
     switch (form)
@@ -160,10 +178,6 @@ void drawForms(bool full)
         setup_matrix(Operations::Translation, x_square_center, y_square_center, 0, 0);
         drawSquare(full);
     case 2:
-        // glColor3f(1, 0.5, 0);
-        // setup_matrix(Operations::Rotation, 0, 0, 1, 45);
-        // setup_matrix(Operations::Translation, 1, 0, 0, 0);
-        // drawSquare(full);
         glColor3f(0.64f, 0.1f, 1);
         glLoadIdentity();
         setup_matrix(Operations::Translation, 1, 0, 0, 0);
@@ -172,6 +186,43 @@ void drawForms(bool full)
         drawSquare(full);
         break;
     }
+}
+
+void drawFirstArm()
+{
+    float x1 = 0;
+    float y1 = 0;
+    float r1 = 0.4;
+    float dist = 3 * r1;
+    float r2 = r1 / 2;
+    float y2 = y1;
+    float x2 = x1 + dist;
+    drawCircle(x1, y1, r1, 0);
+    drawCircle(x2, y2, r2, 0);
+    glBegin(GL_LINES);
+    glVertex2d(x1, y1 + r1);
+    glVertex2d(x2, y2 + r2);
+    glVertex2d(x1, y1 - r1);
+    glVertex2d(x2, y2 - r2);
+    glEnd();
+}
+
+void drawSecondArm()
+{
+    glPushMatrix();
+    glScalef(0.2f, 0.2f, 0.2f);
+    drawRoundedSquare(0);
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(0.1f, 0, 0);
+    glScalef(1.5f, 0.2f, 0.2f);
+    drawSquare(0);
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(1.6f, 0, 0);
+    glScalef(0.2f, 0.2f, 0.2f);
+    drawRoundedSquare(0);
+    glPopMatrix();
 }
 
 void onWindowResized(GLFWwindow *window, int width, int height)
@@ -202,15 +253,6 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
     {
         glfwSetWindowShouldClose(window, GLFW_TRUE);
     }
-
-    else if (key == GLFW_KEY_C && action == GLFW_PRESS)
-        form = 0;
-
-    else if (key == GLFW_KEY_O && action == GLFW_PRESS)
-        form = 1;
-
-    else if (key == GLFW_KEY_S && action == GLFW_PRESS)
-        form = 2;
 }
 
 void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
@@ -290,7 +332,8 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         drawOrigin();
-        drawForms(0);
+        // drawFirstArm();
+        drawSecondArm();
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
